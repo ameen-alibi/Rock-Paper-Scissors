@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="initial-scale=1,width=device-width">
-        <title>Rock Paper Scissors</title>
-        <script src="script.js"></script>
-    </head>
-    <body>
 
-    </body>
+<head>
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="game">
+            <div class="player">
+                <h2>Player</h2>
+                <div class="options player-options">
+                    <button class="player-choice-rock" id="rock">
+                        <img src="static/rock.jpg" alt="Rock" class="icon" id="player-icon"/>
+                    </button>
+                    <button class="player-choice-paper" id="paper">
+                        <img src="static/paper.jpg" alt="Paper" class="icon" id="player-icon"/>
+                    </button>
+                    <button class="player-choice-scissors" id="scissors">
+                        <img src="static/scissors.jpg" alt="Scissors" class="icon"id="player-icon" />
+                    </button>
+                </div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="computer">
+                <h2>Computer</h2>
+                <div class="options computer-options">
+                    <button class="computer-choice-rock">
+                        <img src="static/rock.jpg" alt="Rock" class="icon" id="computer-choice-rock"/>
+                    </button>
+                    <button class="computer-choice-paper" >
+                        <img src="static/paper.jpg" alt="Paper" class="icon" id="computer-choice-paper"/>
+                    </button>
+                    <button class="computer-choice-scissors" >
+                        <img src="static/scissors.jpg" alt="Scissors" class="icon" class="computer-choice-rock"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="result" class="result">0-0</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
 </html>

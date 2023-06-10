@@ -1,56 +1,61 @@
 
+//Get the necessary DOM elements
+const rockButton = document.querySelector(".player-choice-rock");
+const paperButton = document.querySelector(".player-choice-paper");
+const scissorsButton = document.querySelector(".player-choice-scissors");
+const result = document.getElementById('result');
+
+//Add event listeners to player's choices buttons
+rockButton.addEventListener('click', () => playOneRound('rock'));
+paperButton.addEventListener('click', () => playOneRound('paper'));
+scissorsButton.addEventListener('click', () => playOneRound('scissors'));
+
+//Setting initial scores
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){
     const choices = ['rock','paper','scissors'];
     let index = Math.floor(Math.random()*choices.length);
-    return choices[index];
-}
+    let computer_choice=choices[index];
+
+    //TODO Style the computer choice
+    // let computerSelectionClassName = `computer-choice-${computer_choice}`;
+    // let computerSelectedChoice = document.getElementById(computerSelectionClassName);
+    // computerSelectedChoice.classList.add('selected');
+    
+    return computer_choice;
+}    
 
 
-function playOneRound(playerSelection,computerSelection){
-    let playerselection = playerSelection.toLowerCase();
-    let computerselection = computerSelection.toLowerCase();
-    if (playerselection===computerSelection){
-        return 'Tie'
-    }
-    else if (playerselection==='rock'){
-        if (computerselection === 'paper'){
-            return false;
-        }
+function playOneRound(player_selection){
+    // Generate a random choice for the computer
+    let computer_choice = getComputerChoice().toLowerCase();
+    // Determine the winner
+    if (player_selection===computer_choice){
+        alert('Tie!');
+    }    
+    else if 
+        (
+            (player_selection==='rock' && computer_choice === 'scissors') ||
+            (player_selection === 'paper' && computer_choice === 'rock') ||
+            (player_selection === 'scissors' && computer_choice === 'paper')
+        )
+        {
+            playerScore++;
+        }    
         else{
-            return true;
+            computerScore++;
+        }    
+        if (playerScore==5 || computerScore==5){
+            announceWinner();
+            playerScore=0;
+            computerScore=0;
         }
-    }
-    else if (playerselection==='paper'){
-        if (computerselection ==='scissors'){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
-    else {
-        if (computerselection==='paper'){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+        result.textContent = `${playerScore}-${computerScore}`;
+    }    
+
+
+function announceWinner(){
+    playerScore>computerScore?alert('You Won!'):alert('Try Again?');
 }
-
-function game(){
-    var playerScore = 0;
-    var computerScore = 0;
-    for (let i=0;i<5;i++){
-        let playerSelection = prompt('Player Selection :');
-        let computerSelection = getComputerChoice();
-        let result = playOneRound(playerSelection,computerSelection);
-        result ? (playerScore++,console.log('Nice!')) : (computerScore++,console.log('Unlucky')) ;
-    }
-    console.log(playerScore);
-    console.log(computerScore);
-}
-
-
-game()

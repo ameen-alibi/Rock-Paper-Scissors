@@ -1,0 +1,96 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #365964;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 56px;
+    font-family: 'Courier New';
+    color: #D3945A;
+    margin-bottom: 20px;
+}
+
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.player,
+.computer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-family: monospace;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: transform 0.8s ease;
+}
+
+#player-icon:hover,
+.selected {
+    transform: scale(1.1);
+    background-color: rgb(56, 56,56,0.1);
+}
+
+
+
+#result {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.options{
+    padding: 10px;
+    display: flex;
+    gap: 55px;
+}
+
+.computer-options,
+.computer-options>button:hover{
+    cursor: none;
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+.vs{
+    font-weight: bold;
+    font-family: Helvetica;
+}
+
